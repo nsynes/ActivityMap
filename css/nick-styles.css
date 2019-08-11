@@ -1,0 +1,25 @@
+body, #map {
+    width: 100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    font-family:sans-serif;
+    overflow: hidden;
+}
+.white-box {
+    background-color:#F8F8F8;
+    box-shadow: 2px 2px 2px #888888;
+    border-radius:20px;
+    padding:0.2em;
+    margin:0;
+    overflow:auto;
+    position:absolute;
+    z-index:10;
+    left:45%;
+    top:10px;
+    display:none;
+}
+#header {
+    top: 0;
+    padding: 3em 0 0 0;
+}
