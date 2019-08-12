@@ -38,6 +38,19 @@ var getActivities = function(listActivityIDs) {
     }
 }
 
+var getAccountInfo = function() {
+    fetch('/userPhoto', {method: 'GET'})
+    .then(function(response) {
+        if(response.ok) {
+            return response.json();
+        }
+        throw new Error('Request failed.');
+        })
+    .then(data => {
+        $('#user-image').attr("src", data.photo);
+    })
+}
+
 var getListOfActivities = function(allActivities, timeStamp, perPage, page) {
 
     var endOfList = false;
@@ -122,6 +135,9 @@ $('#locate-button').click(function() {
 
     map.on('locationfound', onLocationFound);
 })
+$('#logout-button').click(function() {
+    window.location.replace('/logout');
+})
 
 
 
@@ -129,4 +145,5 @@ var timeStamp = Math.floor(Date.now() / 1000);
 const perPage = 50;
 const startPage = 1;
 
+getAccountInfo()
 getListOfActivities([], timeStamp, perPage, startPage, getActivities);

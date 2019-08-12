@@ -6,20 +6,49 @@ body, #map {
     font-family:sans-serif;
     overflow: hidden;
 }
-.white-box {
+#floating-text {
+    position:absolute;
+    text-align:center;
     background-color:#F8F8F8;
     box-shadow: 2px 2px 2px #888888;
     border-radius:20px;
     padding:0.2em;
     margin:0;
     overflow:auto;
-    position:absolute;
+    width:14em;
+    left: calc(50% - 7em);
     z-index:10;
-    left:45%;
-    top:10px;
+    bottom:20px;
     display:none;
 }
 #header {
     top: 0;
     padding: 3em 0 0 0;
+}
+#top-right-content {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+#logout-button {
+    margin: 0.1em 0;
+    right: 0;
+    font: bold 14px "Lucida Console", Monaco, monospace;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    background-color:white;
+}
+#logout-button:hover {
+    background-color: #f4f4f4;
+}
+#logout-button:active {
+    background-color: #dbdbdb;
+}
+#user-image {
+    display: block;
+    margin-left: auto;
+    right: 0;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-radius: 4px;
+    max-width: 40px;
 }
