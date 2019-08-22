@@ -1,5 +1,0 @@
-https://github.com/millsy/passport-strava
-
-and
-
-https://github.com/millsy/passport-strava

@@ -44,7 +44,7 @@ passport.deserializeUser(function(obj, done) {done(null, obj) });
 passport.use(new StravaStrategy({
     clientID: process.env.STRAVA_CLIENT_ID,
     clientSecret: process.env.STRAVA_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/strava/callback"
+    callbackURL: "https://activity-map.nicksynes.com/auth/strava/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -94,6 +94,7 @@ app.get('/auth/strava/callback',
 
 app.get('/logout', function(req, res){
   req.logout();
+  res.cookie("connect.sid", "", { expires: new Date() });
   res.render('login', { user: req.user });
 });
 
