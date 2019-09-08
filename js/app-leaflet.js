@@ -8,11 +8,14 @@ L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+
+L.control.locate().addTo(map);
+
 /*// 3D map from eeGeo and Wrld3D tiles (requires API key)
 var map = L.eeGeo.map('map', 'de7940464fd8803d51ef32e3ba3886a9', {center: [54.8, -4], zoom: 6});*/
 
+/*
 var locationCircle;
-
 var onLocationFound = function(e) {
     var radius = e.accuracy / 2;
 
@@ -26,10 +29,10 @@ var onLocationFound = function(e) {
     locationCircle = L.circle(e.latlng, {radius:radius, color:'#000000', weight:5, fillColor:'#0000ff', fillOpacity:0.6}).addTo(map);
     locationCircle.bringToFront();
 }
-
 var onLocationError = function(e) {
     alert(e.message);
 }
+*/
 
 var getActivities = function(listActivityIDs) {
     const activityListLength = listActivityIDs.length
@@ -126,6 +129,7 @@ return function (callback, ms, uniqueId) {
 
 
 
+/*
 $('.leaflet-control-zoom').append("<a id='locate-button' role='button' title='Locate' aria-label='Locate'><i class='fa fa-location-arrow' style='margin:10px 0'></i></a>");
 
 $('#locate-button').click(function() {
@@ -135,6 +139,8 @@ $('#locate-button').click(function() {
 
     map.on('locationfound', onLocationFound);
 })
+*/
+
 $('#logout-button').click(function() {
     window.location.replace('/logout');
 })

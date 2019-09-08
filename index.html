@@ -4,12 +4,15 @@
 
     <title>Activity Map</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-    <link rel='stylesheet' href='fontawesome/css/all.css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--<link rel='stylesheet' href='fontawesome/css/all.css'>-->
     <link rel='stylesheet' href='css/nick-styles.css'>
     <link rel='stylesheet' href='css/leaflet.css'>
+    <link rel="stylesheet" href='css/L.Control.Locate.min.css'>
 
     <!--<script src='https://cdn-webgl.eegeo.com/eegeojs/early_access/latest/eegeo.js'></script>-->
     <script src='js/lib/leaflet.js'></script>
+    <script src='js/L.Control.Locate.min.js'></script>
 
 </head>
 
@@ -17,7 +20,7 @@
     <div id='floating-text'></div>
     <div id='map'></div>
     <div id='top-right-content'>
-        <img id='user-image' src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D"/>
+        <img id='user-image' src='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D'/>
         <button id='logout-button'>Log Out</button>
     </div>
 </body>
