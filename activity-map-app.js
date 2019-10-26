@@ -30,7 +30,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.use(app.router);
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/fontawesome', express.static(path.join(__dirname, 'fontawesome')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
@@ -44,7 +43,7 @@ passport.deserializeUser(function(obj, done) {done(null, obj) });
 passport.use(new StravaStrategy({
     clientID: process.env.STRAVA_CLIENT_ID,
     clientSecret: process.env.STRAVA_CLIENT_SECRET,
-    callbackURL: "https://activity-map.nicksynes.com/auth/strava/callback"
+    callbackURL: "/auth/strava/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...
@@ -75,7 +74,7 @@ app.get('/userPhoto', ensureAuthenticated, function(req, res){
 // request.  Redirect user to strava, then strava will redirect user back to
 // this application at /auth/strava/callback
 app.get('/auth/strava',
-  passport.authenticate('strava', { scope: ['public'] }),
+  passport.authenticate('strava', { scope: ['activity:read'], approval_prompt: ['force'] }),
   function(req, res){
     // The request will be redirected to Strava for authentication, so this
     // function will not be called.
@@ -111,7 +110,6 @@ app.get('/listActivities', ensureAuthenticated, (req, res) => {
     strava.athlete.listActivities({'before':before, 'per_page':perPage, 'page':page, 'access_token':req.user.token},function(err,payload,limits) {
 
       if ( err || payload.errors ) {
-          console.log("Error getting activities:" + err);
           return res.status(400).json({ msg: "Error getting activities:" + err });
       } else {
           // Send entire payload (and add geoJson data)
